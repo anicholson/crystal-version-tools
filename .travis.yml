@@ -1,0 +1,6 @@
+language: crystal
+dist: xenial
+crystal:
+  - latest
+  - nightly
+  - 0.32.0

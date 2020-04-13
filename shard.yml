@@ -1,0 +1,11 @@
+name: version_tools
+version: 0.1.0
+
+authors:
+  - Andy Nicholson <andrew@anicholson.net>
+
+description: |
+  Switch behaviour at compile-time based on versions, including
+  Crystal's version.
+
+license: Hippocratic License v1.2

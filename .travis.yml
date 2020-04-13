@@ -1,7 +1,8 @@
 language: crystal
+os:
+  - linux
+  - osx
 dist: 
   - xenial
-  - macos
 crystal:
   - latest
-  - nightly

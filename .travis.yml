@@ -1,6 +1,7 @@
 language: crystal
-dist: xenial
+dist: 
+  - xenial
+  - macos
 crystal:
   - latest
   - nightly
-  - 0.32.0

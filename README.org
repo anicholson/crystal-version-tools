@@ -1,6 +1,0 @@
-* VersionTools
-
-Switch behaviour at Crystal compile-time based on versions,
-using macros.
-
-https://api.travis-ci.org/anicholson/crystal-version-tools.svg?branch=master

@@ -9,8 +9,7 @@ def lesser_test
       "Matches lesser"
     end
 
-    greater do
-      puts "this won't print"
+    greater_than do
       "doesn't match"
     end
   end

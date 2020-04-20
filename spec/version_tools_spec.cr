@@ -96,3 +96,29 @@ describe "version checker" do
     end
   end
 end
+
+def multiple_matchers_test
+  matches = [] of String
+
+  test_checker "0.1.0" do
+    lesser_or_equal do
+      matches << "lte"
+    end
+    equal do
+      matches << "eq"
+    end
+    greater_or_equal do
+      matches << "gte"
+    end
+
+    lesser { matches << "lt" }
+    greater { matches << "gt" }
+  end
+  matches
+end
+
+describe "when multiple matches occur" do
+  it "concatenates the contents in sequence" do
+    multiple_matchers_test.should eq(["lte", "eq", "gte"])
+  end
+end

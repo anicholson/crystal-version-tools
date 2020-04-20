@@ -13,12 +13,17 @@ module VersionTools
                     else
                       raise "Invalid version result"
                     end
-      
+
       expressions = block.body.is_a?(Expressions) ? block.body.expressions : [block.body] %}
 
-      \{{ *expressions.select do |x|
-        (x.class_name == "Call" && to_evaluate.includes?(x.name.symbolize))
-      end.map { |x| x.block.body } }}
+      \{% for exp in expressions %}
+        \{% if exp.class_name == "Call" && to_evaluate.includes?(exp.name.symbolize) %}
+          \{% sub_block = exp.block.body.is_a?(Expressions) ? exp.block.body.expressions : [exp.block.body] %}
+          \{% for e in sub_block %}
+            \{{ e }}
+          \{% end %}
+        \{% end %}
+      \{% end %}
     end
   end
 end

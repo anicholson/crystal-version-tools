@@ -2,7 +2,7 @@ module VersionTools
   macro define_version_checker!(name, my_version)
     macro {{name}}(compared_version, &block)
       \{% my_version_str = {{my_version.is_a?(Path) ? my_version.resolve : my_version}}
-      
+
       version_result = compare_versions(my_version_str, compared_version)
       to_evaluate = if (version_result == 0)
                       [:equal, :greater_or_equal, :lesser_or_equal]

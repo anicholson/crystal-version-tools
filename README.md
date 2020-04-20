@@ -15,7 +15,7 @@ This shard is pre-release for now, so to use it in your project, you'll need to 
 dependencies:
   version_tools:
     github: anicholson/crystal-version-tools
-	branch: "master"
+    branch: "master"
 ```
 
 ## Usage
@@ -103,6 +103,26 @@ Any code not within a clause will also raise a compile-time error:
 
 ```crystal
 with_some_checker("1.0.0") do
-	puts "Is this okay?"
+  x = Object.new
 end
+
+# emits:
+# 
+#  4 | VersionTools.define_version_checker!(with_some_checker, "0.1.0")
+#      ^
+# Error: The following code caused an error:
+# 
+#   x = Object.new
+# 
+# Use a clause instead, for example:
+#   greater do
+#     # your code here
+#   end
+# 
+# The following clauses are supported:
+#   * lesser (or less_than)
+#   * lesser_or_equal (or less_than_or_equal)
+#   * equal (or equals)
+#   * greater_or equal (or greater_than_or_equal)
+#   * greater (or greater_than)
 ```

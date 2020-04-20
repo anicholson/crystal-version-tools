@@ -6,3 +6,8 @@ dist:
   - xenial
 crystal:
   - latest
+install:
+  - shards install
+script:
+  - crystal spec
+  - bin/ameba

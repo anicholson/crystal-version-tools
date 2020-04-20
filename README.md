@@ -126,3 +126,15 @@ end
 #   * greater_or equal (or greater_than_or_equal)
 #   * greater (or greater_than)
 ```
+
+# Contributing
+
+1.  Fork it ( anicholson/crystal-version-tools/fork )
+2.  Create your feature branch (git checkout -b my-new-feature)
+3.  Commit your changes (git commit -am 'Add some feature')
+4.  Push to the branch (git push origin my-new-feature)
+5.  Create a new Pull Request
+
+# Contributors
+
+- [anicholson](https://github.com/anicholson) Andy Nicholson - creator, maintainer

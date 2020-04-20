@@ -76,13 +76,13 @@ The following clauses are supported.
 In these tables, `my_version` refers to the version baked into the checker, and
 `compared_version` refers to the version when the checker is _invoked_.
 
-| Clause             | Description                           | Aliases                 |
-|--------------------|---------------------------------------|-------------------------|
-| `lesser`           | If `my_version` < `compared_version`  | `less_than`             |
-| `lesser_or_equal`  | If `my_version` <= `compared_version` | `less_than_or_equal`    |
-| `equal`            | If `my_version` == `compared_version` | `equals`                |
-| `greater_or_equal` | If `my_version` >= `compared_version` | `greater_than_or_equal` |
-| `greater`          | If `my_version` > `compared_version`  | `greater_than`          |
+| Clause             | Description                         | Aliases                 |
+|--------------------|-------------------------------------|-------------------------|
+| `lesser`           | If `my_version < compared_version`  | `less_than`             |
+| `lesser_or_equal`  | If `my_version <= compared_version` | `less_than_or_equal`    |
+| `equal`            | If `my_version == compared_version` | `equals`                |
+| `greater_or_equal` | If `my_version >= compared_version` | `greater_than_or_equal` |
+| `greater`          | If `my_version > compared_version`  | `greater_than`          |
 
 Any other clauses will raise a compile-time error:
 

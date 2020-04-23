@@ -1,4 +1,28 @@
 module VersionTools
+  macro usage(offending_ast_node)
+    {% prelude = <<-PRELUDE
+The following code caused an error:
+
+PRELUDE
+       postlude = <<-POSTLUDE
+
+
+Use a clause instead, for example:
+  greater do
+    # your code here
+  end
+
+The following clauses are supported:
+  * lesser (or less_than)
+  * lesser_or_equal (or less_than_or_equal)
+  * equal (or equals)
+  * greater_or equal (or greater_than_or_equal)
+  * greater (or greater_than)
+POSTLUDE
+
+       raise prelude + offending_ast_node.stringify + postlude %}
+  end
+
   macro define_version_checker!(name, my_version)
     {%
       equal_clauses = [:equal, :equals, :greater_or_equal, :greather_than_or_equal, :lesser_or_equal, :less_than_or_equal]
@@ -36,25 +60,7 @@ module VersionTools
             {% p! exp %}
             {% raise "Unknown clause: #{exp.name.symbolize}" %}
           {% else %}
-            {% usage = <<-USAGE
-The following code caused an error:
-
-  #{exp}
-
-Use a clause instead, for example:
-  greater do
-    # your code here
-  end
-
-The following clauses are supported:
-  * lesser (or less_than)
-  * lesser_or_equal (or less_than_or_equal)
-  * equal (or equals)
-  * greater_or equal (or greater_than_or_equal)
-  * greater (or greater_than)
-USAGE
-
-               raise usage %}
+            VersionTools.usage {{exp}}
           {% end %}
         {% end %}
       {% end %}

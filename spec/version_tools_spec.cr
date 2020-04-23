@@ -1,5 +1,4 @@
-require "spec"
-require "../src/version_tools"
+require "./spec_helper"
 
 VersionTools.define_version_checker!(test_checker, "0.1.0")
 

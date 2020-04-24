@@ -120,3 +120,24 @@ describe "when multiple matches occur" do
     multiple_matchers_test.should eq(["lte", "eq", "gte"])
   end
 end
+
+compile_time_test("When an Invalid clause is passed", should_build: false) do
+  source do
+    require "../src/version_tools"
+
+    VersionTools.define_version_checker!(example_checker, "0.1.0")
+
+    example_checker("1.0.0") do
+      # ameba:disable Lint/UselessAssign
+      x = 2.3 + 1.7
+    end
+  end
+
+  it "raises a compile-time error" do
+    (err.to_s.includes?("The following code caused an error")).should eq(true)
+  end
+
+  it "mentions the offending code" do
+    (err.to_s.includes?("x = 2.3 + 1.7")).should eq(true)
+  end
+end

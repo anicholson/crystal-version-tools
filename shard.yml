@@ -10,7 +10,7 @@ description: |
 
 development_dependencies:
   ameba:
-      github: crystal-ameba/ameba
-      version: ~> 0.12.0
+    github: crystal-ameba/ameba
+    version: ~> 0.12.0
 
 license: Hippocratic License v1.2

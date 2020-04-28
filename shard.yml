@@ -12,5 +12,8 @@ development_dependencies:
   ameba:
     github: crystal-ameba/ameba
     version: ~> 0.12.0
+  cspec:
+    github: anicholson/cspec
+    version: ~> 0.0.1
 
 license: Hippocratic License v1.2

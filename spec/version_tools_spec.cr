@@ -121,7 +121,7 @@ describe "when multiple matches occur" do
   end
 end
 
-compile_time_test("When an Invalid clause is passed", should_build: false) do
+at_compile_time("When an Invalid clause is passed", should_build: false) do
   source do
     require "../src/version_tools"
 
@@ -134,10 +134,10 @@ compile_time_test("When an Invalid clause is passed", should_build: false) do
   end
 
   it "raises a compile-time error" do
-    (err.to_s.includes?("The following code caused an error")).should eq(true)
+    (err.includes?("The following code caused an error")).should eq(true)
   end
 
   it "mentions the offending code" do
-    (err.to_s.includes?("x = 2.3 + 1.7")).should eq(true)
+    (err.includes?("x = 2.3 + 1.7")).should eq(true)
   end
 end

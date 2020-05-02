@@ -14,6 +14,6 @@ development_dependencies:
     version: ~> 0.12.0
   cspec:
     github: anicholson/cspec
-    version: ~> 0.0.1
+    version: ~> 0.0.2
 
 license: Hippocratic License v1.2

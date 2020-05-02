@@ -134,10 +134,10 @@ at_compile_time("When an Invalid clause is passed", should_build: false) do
   end
 
   it "raises a compile-time error" do
-    (err.includes?("The following code caused an error")).should eq(true)
+    (stderr.includes?("The following code caused an error")).should eq(true)
   end
 
   it "mentions the offending code" do
-    (err.includes?("x = 2.3 + 1.7")).should eq(true)
+    (stderr.includes?("x = 2.3 + 1.7")).should eq(true)
   end
 end

@@ -61,7 +61,7 @@ For example, to create a checker called `with_api_version` that checks against (
 you invoke:
 
 ```crystal
-VersionTools.define_version_checker!(with_api_version, Crystal::VERSION)
+VersionTools.define_version_checker!(with_api_version, "1.0.0")
 ```
 
 And now you can use `with_api_version` the same way as `with_crystal_version` above.

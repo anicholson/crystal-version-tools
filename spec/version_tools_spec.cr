@@ -141,3 +141,23 @@ at_compile_time("When an Invalid clause is passed", should_build: false) do
     (stderr.includes?("x = 2.3 + 1.7")).should eq(true)
   end
 end
+
+at_compile_time("Creating a checker within a module", should_build: true) do
+  source do
+    require "../src/version_tools"
+
+    module InScope
+      VersionTools.define_version_checker!(scoped_checker, "0.1.0")
+    end
+
+    InScope.scoped_checker("0.1.0") do
+      equal do
+        {% puts "was callable from module" %}
+      end
+    end
+  end
+
+  it "output correctly" do
+    stdout.includes?("was callable from module").should eq(true)
+  end
+end

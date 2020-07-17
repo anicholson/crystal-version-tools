@@ -66,9 +66,25 @@ VersionTools.define_version_checker!(with_api_version, "1.0.0")
 
 And now you can use `with_api_version` the same way as `with_crystal_version` above.
 
-> NB: [For now][private_macros], these macros reside in the Top-Level Namespace. Be careful not to create collisions!
+### Scoped within modules
 
-[private_macros]: https://github.com/anicholson/crystal-version-tools/issues/1
+Defining a checker within a module scopes the checker to that module. For example:
+
+```crystal
+module Foo
+  VersionTools.define_version_checker!(with_bar, "0.0.1")
+end
+
+# Works
+Foo.with_bar("...") do
+  #...
+end
+
+# Does not work
+with_bar("...") do
+  #...
+end
+```
 
 ### Supported clauses
 

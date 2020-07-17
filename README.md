@@ -9,13 +9,11 @@ while maintaining a consistent API for your consumers/callers.
 
 ## Installation
 
-This shard is pre-release for now, so to use it in your project, you'll need to specify the `master` branch, like so:
-
 ```yaml
 dependencies:
   version_tools:
     github: anicholson/crystal-version-tools
-    branch: "master"
+    version: ~> 0.1.0
 ```
 
 ## Usage
